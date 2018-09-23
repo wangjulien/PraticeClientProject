@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FamilyListComponent } from './family-list/family-list.component';
+import { AdminFamilyService } from './service/admin-family.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { FamilyListComponent } from './family-list/family-list.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    AdminFamilyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

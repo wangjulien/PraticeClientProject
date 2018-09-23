@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Family } from '../model/family';
+import { AdminFamilyService } from '../service/admin-family.service';
 
 @Component({
   selector: 'app-family-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FamilyListComponent implements OnInit {
 
-  constructor() { }
+  families: Array<Family>;
 
-  ngOnInit() {
+  constructor(
+    private adminFamilyService: AdminFamilyService) { }
+
+   getAllFamilies() {
+    this.adminFamilyService.getFamilies()
+      .subscribe(data => this.families = data, error => console.log(error.error));
+
+    return false;
   }
 
+  showFamilyDetail(family) {
+    this.adminFamilyService.getFamily(family.id);
+  }
+
+  ngOnInit() {
+    console.log('liste-Family component marche');
+    this.getAllFamilies();
+  }
 }
