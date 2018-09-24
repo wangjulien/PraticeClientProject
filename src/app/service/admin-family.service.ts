@@ -31,4 +31,8 @@ export class AdminFamilyService {
   deleteFamily(id): Observable<any> {
     return this.http.delete(this.family_url + '/' + id);
   }
+
+  addChildToFamily(id, newChild): Observable<FamilyDetail> {
+    return this.http.post<FamilyDetail>(this.family_url + '/' + id + '/children', newChild);
+  }
 }

@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { FamilyListComponent } from './family-list/family-list.component';
 import { AdminFamilyService } from './service/admin-family.service';
 import { FamilyUpdateComponent } from './family-update/family-update.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FamilyListComponent,
-    FamilyUpdateComponent
+    FamilyUpdateComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

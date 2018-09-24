@@ -1,6 +1,6 @@
 import { User } from './user';
 
 export class Parent extends User {
-  tel: number;
+  tel: string;
   email: string;
 }
