@@ -17,7 +17,7 @@ export class FamilyListComponent implements OnInit {
     private router: Router
   ) { }
 
-   getAllFamilies() {
+  getAllFamilies() {
     this.adminFamilyService.getFamilies()
       .subscribe(data => this.families = data, error => console.log(error));
 
@@ -29,6 +29,18 @@ export class FamilyListComponent implements OnInit {
     this.router.navigate(['/family-update', family.id]);
 
     return false;
+  }
+
+  deleteFamily(family) {
+    console.log('Family à supprimer : ' + JSON.stringify(family));
+
+    const dialog = 'Veuillez supprimer la famille M.' + family.fatherName + ' et Mme.' + family.motherName
+        + ' et toutes informations associés?';
+    if (confirm(dialog)) {
+      this.adminFamilyService.deleteFamily(family.id)
+        .subscribe(() => { this.getAllFamilies(); },
+          error => console.log(error));
+    }
   }
 
   ngOnInit() {

@@ -6,7 +6,7 @@ import { FamilyUpdateComponent } from './family-update/family-update.component';
 const appRoutes: Routes = [
   { path: 'family-list', component: FamilyListComponent },
   { path: 'family-update', component: FamilyUpdateComponent },
-  { path: '**', redirectTo: 'family-list' }
+  { path: 'family-update/:id', component: FamilyUpdateComponent },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

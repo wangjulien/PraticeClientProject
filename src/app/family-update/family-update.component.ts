@@ -15,12 +15,10 @@ export class FamilyUpdateComponent implements OnInit {
   constructor(
     private adminFamilyService: AdminFamilyService,
     private route: ActivatedRoute) {
-      console.log('family-update constructor marche');
       this.actualFamily = new FamilyDetail();
   }
 
   onSubmit() {
-    console.log('Famille à traiter : ' + JSON.stringify(this.actualFamily));
 
     if (null == this.actualFamily.id) {
       console.log('Famille à ajouter : ' + JSON.stringify(this.actualFamily));
@@ -43,6 +41,7 @@ export class FamilyUpdateComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
+      console.log(id);
       if (null != id) {
         this.adminFamilyService.getFamilyDetail(id)
           .subscribe(data => this.actualFamily = data, error => console.log(error));

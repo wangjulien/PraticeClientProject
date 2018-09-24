@@ -1,7 +1,7 @@
 <div>
-    <input type="submit" value="Ajouter une nouvelle famille" class="btn btn-primary" [routerLink]="['/family-update']" />
-  </div>
-  <br>
+  <input type="submit" value="Ajouter une nouvelle famille" class="btn btn-primary" [routerLink]="['/family-update']" />
+</div>
+<br>
 
 <table class="table table-bordered table-hover">
 
@@ -12,7 +12,7 @@
       <th>Mere</th>
       <th>Nombre d'enfant</th>
       <th>Adresse</th>
-      <th>Actions</th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +24,9 @@
       <td>{{family.address}}</td>
       <td>
         <button class="btn btn-info" (click)="showFamilyDetail(family)">Detail</button>
+      </td>
+      <td>
+        <button class="btn btn-info" (click)="deleteFamily(family)">Supprimer</button>
       </td>
     </tr>
   </tbody>
