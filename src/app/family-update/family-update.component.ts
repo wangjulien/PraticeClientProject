@@ -59,7 +59,6 @@ export class FamilyUpdateComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      console.log(id);
       if (null != id) {
         this.adminFamilyService.getFamilyDetail(id)
           .subscribe(data => this.actualFamily = data, error => console.log(error));

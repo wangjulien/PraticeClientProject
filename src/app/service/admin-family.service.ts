@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Family } from '../model/family';
-import * as CONST from '../constants';
 import { FamilyDetail } from '../model/family-detail';
+import * as CONST from '../constants';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AdminFamilyService {
 
   private family_url = CONST.REST_HOST + '/families';
