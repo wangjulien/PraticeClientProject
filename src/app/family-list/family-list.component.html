@@ -1,20 +1,27 @@
+<div>
+    <input type="submit" value="Ajouter une nouvelle famille" class="btn btn-primary" [routerLink]="['/family-update']" />
+  </div>
+  <br>
+
 <table class="table table-bordered table-hover">
 
   <thead class="thead-light">
     <tr id="monRow">
-      <th>Référence du family</th>
+      <th>ID</th>
       <th>Pere</th>
       <th>Mere</th>
       <th>Nombre d'enfant</th>
       <th>Adresse</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let family of families">
       <td>{{family.id}}</td>
-      <td>{{family.father.firstName}} {{family.father.lastName}}</td>
-      <td>{{family.mother.firstName}} {{family.mother.lastName}}</td>
-      <td>{{family.children.size}}</td>
+      <td>{{family.fatherName}}</td>
+      <td>{{family.motherName}}</td>
+      <td>{{family.childrenNumber}}</td>
+      <td>{{family.address}}</td>
       <td>
         <button class="btn btn-info" (click)="showFamilyDetail(family)">Detail</button>
       </td>
