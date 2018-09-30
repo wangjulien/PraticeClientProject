@@ -1,3 +1,55 @@
-<p>
-  inscription works!
-</p>
+<div>
+  <a [routerLink]="['/family-update']"><button type="button" class="btn btn-success">Retour</button></a>
+</div>
+
+<table class="table table-bordered table-hover">
+
+  <thead class="thead-light">
+    <tr id="monRow">
+      <th>ID</th>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th>Age</th>
+      <th>Section</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{actualChild.id}}</td>
+      <td>{{actualChild.firstName}}</td>
+      <td>{{actualChild.lastName}}</td>
+      <td>{{actualChild.age}}</td>
+      <td>{{actualChild.section}}</td>
+    </tr>
+    Activites :
+    <tr *ngFor="let activity of actualChild.activities">
+      <td>{{activity.id}}</td>
+      <td colspan="4">{{activity.name}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<h3>Activites a inscrire : </h3>
+<table class="table table-bordered table-hover">
+  <thead class="thead-light">
+    <tr id="monRow">
+      <th>ID</th>
+      <th>Activite</th>
+      <th>Place maximum</th>
+      <th>Section permise</th>
+      <th>Inscrire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let actvity of activitiesToInscribe">
+      <td>{{actvity.id}}</td>
+      <td>{{actvity.name}}</td>
+      <td>{{actvity.maxNumChildAllowed}}</td>
+      <td>{{actvity.sectionAllowed}}</td>
+      <td>
+        <button class="btn btn-info" (click)="inscribeActivity(actvity)">Inscrire</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -16,11 +16,19 @@ export class InscriptionComponent implements OnInit {
 
   constructor(
     private adminChildService: AdminChildService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) { 
+      this.actualChild = new Child();
+    }
 
-  ngOnInit() {
-    console.log('inscription component marche');
 
+  inscribeActivity(activity) {
+    this.adminChildService.inscribeActivityToChild(this.actualChild.id, activity.id)
+      .subscribe(() => this.loadInitData(), error => console.log(error));
+
+    return false;
+  }
+
+  loadInitData() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (null != id) {
@@ -30,5 +38,10 @@ export class InscriptionComponent implements OnInit {
           .subscribe(data => this.activitiesToInscribe = data, error => console.log(error));
       }
     });
+  }
+
+  ngOnInit() {
+    console.log('inscription component marche');
+    this.loadInitData();
   }
 }

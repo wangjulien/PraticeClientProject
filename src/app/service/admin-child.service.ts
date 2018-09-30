@@ -21,4 +21,8 @@ export class AdminChildService {
   getActivitiesToInscribe(id): Observable<Activity[]> {
     return this.http.get<Activity[]>(this.child_url + '/' + id + '/activities');
   }
+
+  inscribeActivityToChild(childId, activityId) : Observable<any> {
+    return this.http.post<any>(this.child_url + '/' + childId + '/activities/' + activityId, {});
+  }
 }
