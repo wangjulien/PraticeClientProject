@@ -16,7 +16,7 @@ export class InscriptionComponent implements OnInit {
 
   constructor(
     private adminChildService: AdminChildService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
       this.actualChild = new Child();
     }
 

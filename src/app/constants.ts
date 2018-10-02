@@ -1,3 +1,3 @@
 'use strict';
 
-export const REST_HOST = 'http://192.168.1.101:8080/api';
+export const REST_HOST = 'http://176.165.34.136:8080/api';

@@ -1,5 +1,5 @@
 <div>
-  <a [routerLink]="['/family-update']"><button type="button" class="btn btn-success">Retour</button></a>
+  <a [routerLink]="['/family-list']"><button type="button" class="btn btn-success">Retour</button></a>
 </div>
 
 <table class="table table-bordered table-hover">
@@ -21,7 +21,7 @@
       <td>{{actualChild.age}}</td>
       <td>{{actualChild.section}}</td>
     </tr>
-    Activites :
+    Activités inscrites:
     <tr *ngFor="let activity of actualChild.activities">
       <td>{{activity.id}}</td>
       <td colspan="4">{{activity.name}}</td>
@@ -30,13 +30,13 @@
 </table>
 
 <hr>
-<h3>Activites a inscrire : </h3>
+<h3>Activités à inscrire : </h3>
 <table class="table table-bordered table-hover">
   <thead class="thead-light">
     <tr id="monRow">
       <th>ID</th>
       <th>Activite</th>
-      <th>Place maximum</th>
+      <th>Place libre</th>
       <th>Section permise</th>
       <th>Inscrire</th>
     </tr>
@@ -45,7 +45,7 @@
     <tr *ngFor="let actvity of activitiesToInscribe">
       <td>{{actvity.id}}</td>
       <td>{{actvity.name}}</td>
-      <td>{{actvity.maxNumChildAllowed}}</td>
+      <td>{{actvity.freePlaceNum}}</td>
       <td>{{actvity.sectionAllowed}}</td>
       <td>
         <button class="btn btn-info" (click)="inscribeActivity(actvity)">Inscrire</button>
